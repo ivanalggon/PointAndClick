@@ -44,8 +44,8 @@ public class RegaderaProperties : MonoBehaviour, IPointerClickHandler
             // Si la regadera no está en el inventario
             if (!regaderaInventario.activeSelf)
             {
-                dialogueManager.messages = new string[] { "Puedo coger esta regadera" };
-                dialogueManager.StartMessage();
+                dialogueManager.dialogues = new string[] { "Puedo coger esta regadera" };
+                dialogueManager.StartDialogue();
                 buttonsBehaviourScript.HabilitarTodosLosBotones();
             }
         }
@@ -53,8 +53,6 @@ public class RegaderaProperties : MonoBehaviour, IPointerClickHandler
         // COGER
         if (buttonsBehaviourScript.GetGrabButton())
         {
-            dialogueManager.messages = new string[] { "Has recogido la regadera" };
-            dialogueManager.StartMessage();
             buttonsBehaviourScript.HabilitarTodosLosBotones();
 
             regaderaInventario.SetActive(true);

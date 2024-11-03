@@ -50,8 +50,8 @@ public class DialogueManager : MonoBehaviour
             }
         }
         // despues de 3 segundos se limpia el mensaje
-        yield return new WaitForSeconds(3);
-        mensajes.text = "";
+        yield return new WaitForSeconds(2);
+        dialogos.text = "";
     }
 
     IEnumerator TypeMessage()
@@ -66,7 +66,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
         // despues de 3 segundos se limpia el mensaje
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         mensajes.text = "";
     }
 }

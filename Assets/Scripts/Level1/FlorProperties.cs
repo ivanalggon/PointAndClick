@@ -9,6 +9,7 @@ public class FlorProperties : MonoBehaviour, IPointerClickHandler
 {
     public GameObject gameManager;
     public GameObject eventSystem;
+
     public GameObject florInventario;
     public GameObject regaderaInventario;
     public GameObject regadera;
@@ -26,9 +27,6 @@ public class FlorProperties : MonoBehaviour, IPointerClickHandler
     // Se ejecuta al principio
     void Start()
     {
-        this.gameObject.SetActive(true);
-        florInventario.SetActive(false);
-
         buttonsBehaviourScript = gameManager.GetComponent<ButtonsBehaviourScript>();
         animator = this.GetComponent<Animator>();
         dialogueManager = eventSystem.GetComponent<DialogueManager>();
@@ -59,16 +57,18 @@ public class FlorProperties : MonoBehaviour, IPointerClickHandler
         // USAR
         if (buttonsBehaviourScript.GetUseButton())
         {
-            if (isActive)
+            if (!isActive && regaderaInventario.activeSelf)
             {
-                dialogueManager.messages = new string[] { "La flor ha crecido. ¡Voy a cogerla!" };
-                dialogueManager.StartMessage();
+                isActive = true;
+                animator.SetBool("isUsed", true);
+
+                regaderaInventario.SetActive(false);
                 buttonsBehaviourScript.HabilitarTodosLosBotones();
             }
             else
             {
-                isActive = true;
-                animator.SetBool("isUsed", true);
+                dialogueManager.dialogues = new string[] { "Falta recoger la regadera" };
+                dialogueManager.StartDialogue();
                 buttonsBehaviourScript.HabilitarTodosLosBotones();
             }
         }
@@ -84,8 +84,7 @@ public class FlorProperties : MonoBehaviour, IPointerClickHandler
             }
             else
             {
-                // Si la regadera está visible
-                if (!isGrabbed && regadera.activeSelf)
+                if (!isGrabbed && isActive)
                 {
                     //ocultar la flor
                     this.gameObject.SetActive(false);
@@ -95,7 +94,7 @@ public class FlorProperties : MonoBehaviour, IPointerClickHandler
 
                     isGrabbed = true;
                     animator.SetBool("isGrabbed", true);
-                    dialogueManager.messages = new string[] { "¡Has recogido la flor!" };
+                    dialogueManager.dialogues = new string[] { "¡Has recogido la flor!" };
                     buttonsBehaviourScript.HabilitarTodosLosBotones();
                 }
                 else

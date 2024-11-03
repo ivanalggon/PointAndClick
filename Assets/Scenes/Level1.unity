@@ -1488,7 +1488,7 @@ MonoBehaviour:
   mensajes: {fileID: 978191704}
   dialogues: []
   messages:
-  - "\xA1Qu\xE9 tarde m\xE1s bonita!"
+  - "Ojal\xE1 tener una flor tan bonita como esas"
   letterDelay: 0.02
 --- !u!1 &1164375074
 GameObject:
@@ -1635,6 +1635,7 @@ GameObject:
   - component: {fileID: 1219932487}
   - component: {fileID: 1219932486}
   - component: {fileID: 1219932485}
+  - component: {fileID: 1219932488}
   m_Layer: 0
   m_Name: "Ni\xF1o"
   m_TagString: Untagged
@@ -1720,6 +1721,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1219932488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219932483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7750ce30b464c649b89572fbcf0795e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 1486918728}
+  eventSystem: {fileID: 1029121566}
+  regaderaInventario: {fileID: 942953306}
+  florInventario: {fileID: 1496527195}
+  haveFlower: 0
+  isLooking: 0
 --- !u!1 &1409322499
 GameObject:
   m_ObjectHideFlags: 0
@@ -2560,7 +2579,6 @@ GameObject:
   - component: {fileID: 1765514728}
   - component: {fileID: 1765514730}
   - component: {fileID: 1765514729}
-  - component: {fileID: 1765514731}
   m_Layer: 5
   m_Name: Inventario
   m_TagString: Untagged
@@ -2628,18 +2646,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765514727}
   m_CullTransparentMesh: 1
---- !u!114 &1765514731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1765514727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa3931512e1f7fc4689fa65c7ce73b0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1931035989
 GameObject:
   m_ObjectHideFlags: 0
